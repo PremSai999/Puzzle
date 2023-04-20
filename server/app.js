@@ -3,11 +3,12 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 app.use(bodyParser.json());
 app.use(cors());
 // Replace with your MongoDB connection string
-const uri =   "mongodb+srv://pr3msai:Premsai999@puzzle.vcvtbmj.mongodb.net/test";
+const uri =   process.env.DB_URL;
 mongoose.connect(uri, { useNewUrlParser: true });
 
 const userSchema = new mongoose.Schema({
